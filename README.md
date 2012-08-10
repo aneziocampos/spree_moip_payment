@@ -40,12 +40,20 @@ Moipr::Config.setup do |config|
 end
 ```
 
-# Quer forkar e testar na sua máquina?? 
+# Quer forkar e testar na sua máquina??
 
-Esse projeto está sendo desenvolvido usando ruby 1.9.2. Além do Ruby você precisa de duas variáveis de ambiente configuradas. Que são seusseu secret e seu token do moip labs para rodar sua app.
+Esse projeto está sendo desenvolvido usando ruby 1.9.2. Além do Ruby você precisa de duas variáveis de ambiente configuradas. Que são seus secret e seu token do moip labs para rodar sua app.
 
     export MOIP_DEV_KEY="YOUR-DEVELOPMENT-MOIP-KEY"
     export MOIP_DEV_TOKEN="YOUR-DEVELOPMENT-MOIP-TOKEN"
+
+Não se esqueça de criar a dummy app com
+
+    bundle exec rake test_app
+
+e para rodar as specs
+
+    rspec spec
 
 Enquanto este projeto estiver com o alerta de [WIP] work in progress, pode utilizá-lo por sua conta e risco. ;p esperamos mudar isso o mais rápido possível.
 
