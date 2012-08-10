@@ -44,8 +44,8 @@ end
 
 Esse projeto está sendo desenvolvido usando ruby 1.9.2. Além do Ruby você precisa de duas variáveis de ambiente configuradas. Que são seusseu secret e seu token do moip labs para rodar sua app.
 
-    export ENV["MOIP_DEV_KEY"]="YOUR-DEVELOPMENT-MOIP-KEY"
-    export ENV["MOIP_DEV_TOKEN"]="YOUR-DEVELOPMENT-MOIP-TOKEN"
+    export MOIP_DEV_KEY="YOUR-DEVELOPMENT-MOIP-KEY"
+    export MOIP_DEV_TOKEN="YOUR-DEVELOPMENT-MOIP-TOKEN"
 
 Enquanto este projeto estiver com o alerta de [WIP] work in progress, pode utilizá-lo por sua conta e risco. ;p esperamos mudar isso o mais rápido possível.
 
