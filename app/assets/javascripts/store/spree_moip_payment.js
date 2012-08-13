@@ -1,4 +1,11 @@
 $(document).ready(function(){
+  $("input[name='payment_type']").bind('change', function(e){
+    $("input[name='payment_type']").each(function(){
+      var div_id = $(this).val();
+      $('#'+div_id).toggle();
+    })
+  });
+
    $("#checkout_form_payment input[type=submit]").click(function(e){
      processaPagtoCredito(this);
      e.preventDefault();

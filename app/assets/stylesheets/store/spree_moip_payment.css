@@ -1,3 +1,7 @@
 /*
  *= require store/spree_core
 */
+
+#cartao_de_credito {
+  display: none;
+}
