@@ -1,15 +1,11 @@
 <div id="MoipWidget" data-token="<%= @order.moip_token %>" callback-method-success="funcao_sucesso" callback-method-error="funcao_falha"></div>
 <% param_prefix = "payment_source[#{payment_method.id}]" %>
-
 <h2>Forma de Pagameto</h2>
 <p>
   <%= label_tag do %>
     <%= radio_button_tag :payment_type, "boleto", true %>
     Boleto Bancário
   <% end %>
-</p>
-
-<p>
   <%= label_tag do %>
     <%= radio_button_tag :payment_type, "cartao_de_credito" %>
     Cartão de Crédito
@@ -20,8 +16,8 @@
 </div>
 <div id="cartao_de_credito">
   <div id="moip-payment">
-    <fieldset>
-      <legend>Instituiçao</legend>
+    <h3 style="color: #00ADEE">Instituiçao</h3>
+    <p>
       <%= label_tag do %>
         <%= radio_button_tag :instituicao, "Visa" %>
         Visa
@@ -46,8 +42,7 @@
         <%= radio_button_tag :instituicao, "Mastercard" %>
         Mastercard
       <% end %>
-    </fieldset>
-
+    </p>
     <p>
       <%= label_tag :numero, "Número" %>
       <%= text_field_tag :numero %>

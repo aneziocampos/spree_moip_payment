@@ -7,7 +7,7 @@ $(document).ready(function(){
   });
 
    $("#checkout_form_payment input[type=submit]").click(function(e){
-     processaPagtoCredito(this);
+     processaPagamento();
      e.preventDefault();
    });
 
@@ -34,6 +34,18 @@ $(document).ready(function(){
 });
 
 
+function processaPagamento(){
+  var selected = $("input[name='payment_type']:checked").val();
+  switch(selected) {
+    case "boleto":
+      processaPagtoBoleto ();
+     break;
+    case "cartao_de_credito":
+      processaPagtoCredito();
+      break;
+  }
+}
+
 function processaPagtoCredito() {
   form = $("#moip-payment");
    var settings = {
@@ -56,7 +68,18 @@ function processaPagtoCredito() {
    MoipWidget(settings);
 }
 
+function processaPagtoBoleto () {
+    var settings = {
+        "Forma": "BoletoBancario"
+    }
+    MoipWidget(settings);
+}
+
 var funcao_sucesso = function(data){
+  var selected = $("input[name='payment_type']:checked").val();
+  if (selected === "boleto") {
+    $("#name_id").val(data.url);
+  }
   $("#checkout_form_payment").submit();
 };
 
