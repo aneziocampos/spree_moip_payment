@@ -14,5 +14,19 @@ describe Spree::Address do
         it { should_not allow_value('12345-678a').for(:zipcode) }
       end
     end
+
+    describe "phone" do
+      context "valid values" do
+        it { should allow_value('(12)3456-7890').for(:phone) }
+        it { should allow_value('(11)93456-7890').for(:phone) }
+      end
+
+      context "invalid values" do
+        it { should_not allow_value('(12)345612-7890').for(:phone) }
+        it { should_not allow_value('a(12)3456-7890').for(:phone) }
+        it { should_not allow_value('(ab)cdef-ghij').for(:phone) }
+        it { should_not allow_value('(12)3456-7890a').for(:phone) }
+      end
+    end
   end
 end
