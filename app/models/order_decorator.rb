@@ -2,6 +2,10 @@ require 'rest-client'
 
 Spree::Order.class_eval do
 
+  attr_accessible :address_number, :district
+
+  validates :address_number, :district, presence: true
+
   state_machine  do
     before_transition :to => 'payment', :do => :generate_moip_token
   end
