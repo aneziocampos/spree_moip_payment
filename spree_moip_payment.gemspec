@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pry',           '0.9.10'
   s.add_development_dependency 'awesome_print', '1.0.2'
   s.add_development_dependency 'vcr',           '2.2.4'
+  s.add_development_dependency 'shoulda-matchers', '1.2.0'
   s.add_development_dependency 'fakeweb',       '1.3.0'
   s.add_development_dependency 'sqlite3'
 end

@@ -7,6 +7,7 @@ require 'rspec/rails'
 require 'ffaker'
 require 'pry'
 require 'vcr'
+require 'shoulda-matchers'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
