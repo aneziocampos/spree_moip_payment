@@ -19,6 +19,18 @@ $(document).ready(function(){
      id: "message",
      class: "flash notice",
    }).prependTo("#moip-payment").hide();
+
+
+   jQuery.validator.addMethod("zipcode", function(value, element) {
+     return value.match(/^(\d){5}-(\d){3}$/);
+   }, "Defina o Codigo Postal no formato xxxxx-xxx");
+
+   jQuery.validator.addMethod("phone", function(value, element) {
+     return value.match(/^\((\d){2}\)(\d){4,5}-(\d){4}$/);
+   }, "Defina o Telefone no formato (xx)xxxx-xxxx");
+
+   $("#order_bill_address_attributes_zipcode, #order_ship_address_attributes_zipcode").addClass("zipcode");
+   $("#order_bill_address_attributes_phone, #order_ship_address_attributes_phone").addClass("phone");
 });
 
 
