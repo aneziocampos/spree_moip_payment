@@ -38,7 +38,7 @@ function processaPagamento(){
   var selected = $("input[name='payment_type']:checked").val();
   switch(selected) {
     case "boleto":
-      processaPagtoBoleto ();
+      processaPagtoBoleto();
      break;
     case "cartao_de_credito":
       processaPagtoCredito();
@@ -78,7 +78,7 @@ function processaPagtoBoleto () {
 var funcao_sucesso = function(data){
   var selected = $("input[name='payment_type']:checked").val();
   if (selected === "boleto") {
-    $("#name_id").val(data.url);
+    $("#moip_boleto_url").val(data.url);
   }
   $("#checkout_form_payment").submit();
 };
