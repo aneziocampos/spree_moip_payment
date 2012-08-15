@@ -9,4 +9,3 @@ nbproject
 *.swp
 .rvmrc
 spec/dummy
-spec/fixtures/vcr_cassettes*
