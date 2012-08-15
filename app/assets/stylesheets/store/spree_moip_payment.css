@@ -5,3 +5,8 @@
 #cartao_de_credito {
   display: none;
 }
+
+#order_bill_address_attributes_state_name,
+#order_ship_address_attributes_state_name {
+  display: none;
+}
