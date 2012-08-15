@@ -17,6 +17,17 @@ module Moipr
       def initialize(attributes = {})
         attributes.each do |name, value|
           send("#{name}=", value)
+        end if attributes
+        build_predicate_method
+      end
+
+      def build_predicate_method
+        Moipr::NASP::STATUS_DE_PAGAMENTO.each do |id, value|
+          self.instance_eval <<-METHOD
+            def #{value}?
+              self.status_pagamento == "#{id}"
+            end
+          METHOD
         end
       end
     end
