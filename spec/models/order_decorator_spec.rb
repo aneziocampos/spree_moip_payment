@@ -17,22 +17,6 @@ describe Spree::Order do
     end
   end
 
-  describe "mass assignment" do
-    context "allowed values" do
-      [:address_number, :district].each do |attribute|
-        it { should allow_mass_assignment_of(attribute) }
-      end
-    end
-  end
-
-  describe "validations" do
-    describe "requireds" do
-      [:address_number, :district].each do |attribute|
-        it { should validate_presence_of(attribute) }
-      end
-    end
-  end
-
   describe "generate_moip_token" do
     let!(:payment) { FactoryGirl.create(:payment) }
     let(:order) { FactoryGirl.create(:moip_order, number: "R033822677", total: 15.00, state: "delivery", user: FactoryGirl.create(:user, email: "johndoe@example.com")) }
