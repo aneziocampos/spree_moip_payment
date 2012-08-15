@@ -31,6 +31,8 @@ $(document).ready(function(){
 
    $("#order_bill_address_attributes_zipcode, #order_ship_address_attributes_zipcode").addClass("zipcode");
    $("#order_bill_address_attributes_phone, #order_ship_address_attributes_phone").addClass("phone");
+   $("#order_bill_address_attributes_address_number, #order_bill_address_attributes_district").addClass("required");
+   $("#order_ship_address_attributes_address_number, #order_ship_address_attributes_district").addClass("required");
 });
 
 
