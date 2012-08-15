@@ -18,7 +18,7 @@ describe Spree::Order do
   end
 
   describe "generate_moip_token" do
-    let!(:payment) { FactoryGirl.create(:payment) }
+    let!(:payment) { FactoryGirl.create(:moip_payment) }
     let(:order) { FactoryGirl.create(:moip_order, number: "R033822677", total: 15.00, state: "delivery", user: FactoryGirl.create(:user, email: "johndoe@example.com")) }
 
     before do
