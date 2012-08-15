@@ -1,0 +1,13 @@
+%p#baddress_number.field
+  = label_tag 'Numero'
+  %span.required
+    *
+  %br/
+  = text_field_tag 'order_bill_address_attributes_address_number', nil, :name => "order[bill_address_attributes][address_number]"
+
+%p#bdistrict.field
+  = label_tag 'Bairro'
+  %span.required
+    *
+  %br/
+  = text_field_tag 'order_bill_address_attributes_district', nil, :name => "order[bill_address_attributes][district]"
