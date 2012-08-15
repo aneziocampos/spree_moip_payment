@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<MOIP_DEV_KEY>:<MOIP_DEV_TOKEN>@desenvolvedor.moip.com.br/sandbox/ws/alpha/EnviarInstrucao/Unica
+    body:
+      encoding: ASCII-8BIT
+      string: <EnviarInstrucao><InstrucaoUnica TipoValidacao="Transparente"><Razao>Loja
+        Fitnoss</Razao><IdProprio>R733822657</IdProprio><Valores><Valor moeda="BRL">15.0</Valor></Valores><Pagador><Nome>John</Nome><Email>johndoe@example.com</Email><IdPagador>2</IdPagador><EnderecoCobranca><Logradouro>Av.
+        Presidente Vargas</Logradouro><Numero>65</Numero><Complemento>Centro</Complemento><Bairro>New
+        Hope</Bairro><Cidade>Rio de Janeiro</Cidade><Estado>RJ</Estado><Pais>BRA</Pais><CEP>00000-000</CEP><TelefoneFixo>(21)0000-0000</TelefoneFixo></EnderecoCobranca></Pagador></InstrucaoUnica></EnviarInstrucao>
+    headers:
+      accept:
+      - application/xml
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/xml
+      content-length:
+      - '589'
+      user-agent:
+      - Ruby
+      authorization:
+      - Basic V05MQ0FKVlRTVjg3OFhOWldaTU1NWVBVQ08xRE9ETUI6MjhaT0VPRU1BQzlRTk9JUEw0UFREUEVWTDNQWUQ4WFpYS09WTllQTw==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 15 Aug 2012 17:34:23 GMT
+      server:
+      - Apache/2.2.3 (CentOS)
+      vary:
+      - Accept-Encoding
+      content-encoding:
+      - gzip
+      content-length:
+      - '218'
+      content-type:
+      - text/xml;charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA4WPwWrDMBBEf6XkA7yrlUQTowpKYxcf4qZxQ2luqjHENJaM
+        V47z+TVJoMfObWDmMWM8izTz59YNhec4jLULe9/WbtdwHzw3D5fu5DmdY0+L
+        Y4x9CjBNU9KFtk/q0CXfA0wM7tQfHSysudY4OmuKtSUUhEuhhZKKpJJ410oT
+        amFgjpgqujiyrca6YQ4G7t58hJ/G25JyPIgtvePrMheZPohS7eSXkvQpSeXy
+        Dff4giU+YoUFPuN2lek1bXCj5cy/MQz8jYL/7tpf5vVYOhEBAAA=
+    http_version: '1.1'
+  recorded_at: Wed, 15 Aug 2012 17:34:07 GMT
+recorded_with: VCR 2.2.4

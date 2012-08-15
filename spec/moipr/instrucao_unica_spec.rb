@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Moipr::InstrucaoUnica do
   let!(:payment) { FactoryGirl.create(:moip_payment) }
-  let(:order) { FactoryGirl.create(:moip_order, number: "R033822659", total: 15.00, state: "delivery", user: FactoryGirl.create(:user, email: "johndoe@example.com")) }
+  let(:order) { FactoryGirl.create(:moip_order, number: "R733822657", total: 15.00, state: "delivery", user: FactoryGirl.create(:user, email: "johndoe@example.com")) }
   let(:instrucao_unica_xml) { Moipr::EnviarInstrucaoXML.new(order: order) }
 
   describe "#request" do
@@ -27,7 +27,7 @@ describe Moipr::InstrucaoUnica do
 
       it "should get success on request" do
         VCR.use_cassette('moipr/instrucao_unica/request/success') do
-          instrucao_unica.request.should eq %{<ns1:EnviarInstrucaoUnicaResponse xmlns:ns1=\"http://www.moip.com.br/ws/alpha/\"><Resposta><ID>201208081711279940000000928977</ID><Status>Sucesso</Status><Token>925041T2U0F8J0Q8W1S7D1I1P2K7L9S9E4N0I0G0Z010Q0H0R9Q2L8T9Z7X7</Token></Resposta></ns1:EnviarInstrucaoUnicaResponse>}
+          instrucao_unica.request.should eq %{<ns1:EnviarInstrucaoUnicaResponse xmlns:ns1=\"http://www.moip.com.br/ws/alpha/\"><Resposta><ID>201208151434234300000000952051</ID><Status>Sucesso</Status><Token>N2F0Z1P2Q0G8F1E5Z1N4R3Y432W324F3O0U0C0N070S0I0A0P9E5D2M0M531</Token></Resposta></ns1:EnviarInstrucaoUnicaResponse>}
         end
       end
     end
