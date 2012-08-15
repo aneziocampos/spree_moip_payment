@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Moipr::NASP::Notificacao do
   describe "initialize" do
-    subject { Moipr::NASP::Notificacao.new(params) }
+    subject { Moipr::NASP::Notificacao.new(post_nasp_params) }
 
     its(:cod_moip) { should eq "78343"}
     its(:email_consumidor) { should eq "spree@example.com"}
@@ -15,7 +15,7 @@ describe Moipr::NASP::Notificacao do
   end
 
   describe "statuses" do
-    let!(:notificacao) { Moipr::NASP::Notificacao.new(params) }
+    let!(:notificacao) { Moipr::NASP::Notificacao.new(post_nasp_params) }
 
     context "autorizado" do
       it {
@@ -59,19 +59,6 @@ describe Moipr::NASP::Notificacao do
         notificacao.estornado?.should be_true
       }
     end
-  end
-
-  def params(attrs={})
-    {
-      cod_moip: "78343",
-      email_consumidor: "spree@example.com",
-      forma_pagamento: "73",
-      id_transacao: "R202161100",
-      parcelas: "1",
-      status_pagamento: "4",
-      tipo_pagamento: "BoletoBancario",
-      valor: "1399"
-    }.merge!(attrs)
   end
 end
 
