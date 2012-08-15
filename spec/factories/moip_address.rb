@@ -1,19 +1,19 @@
-Factory.define :moip_address, :parent => :address do |f|
-  f.firstname 'John'
-  f.lastname 'Doe'
-  f.address1 'Av. Presidente Vargas'
-  f.address2 'Centro'
-  f.city   "Rio de Janeiro"
-  f.association(:state, :factory => :rj_state)
-  f.country do |address|
+Factory.define :moip_address, :parent => :address do |record|
+  record.firstname 'John'
+  record.lastname 'Doe'
+  record.address1 'Av. Presidente Vargas'
+  record.address2 'Centro'
+  record.city "Rio de Janeiro"
+  record.association(:state, :factory => :rj_state)
+  record.country do |address|
     if address.state
       address.state.country
     else
       address.association(:country)
     end
   end
-  f.zipcode '20000-000'
-  f.phone '(21)0000-0000'
-  f.address_number 65
-  f.district "New Hope"
+  record.zipcode '00000-000'
+  record.phone '(21)0000-0000'
+  record.address_number 65
+  record.district "New Hope"
 end
