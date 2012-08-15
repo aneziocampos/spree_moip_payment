@@ -19,7 +19,7 @@ describe Spree::Order do
 
   describe "generate_moip_token" do
     let!(:payment) { FactoryGirl.create(:moip_payment) }
-    let(:order) { FactoryGirl.create(:moip_order, number: "R033822677", total: 15.00, state: "delivery", user: FactoryGirl.create(:user, email: "johndoe@example.com")) }
+    let(:order) { FactoryGirl.create(:moip_order, number: "R033821777", total: 15.00, state: "delivery", user: FactoryGirl.create(:user, email: "johndoe@example.com")) }
 
     before do
       VCR.use_cassette('models/order_decorator/generate_moip_token/success') do
@@ -32,7 +32,7 @@ describe Spree::Order do
     end
 
     it "should generate token" do
-      order.moip_token.should eq("F2X0F1M2F0G8E0P9H1M7Z4N1F3J7A5Z3M5Y0S0102080X0W0G9Z3W3X518U2")
+      order.moip_token.should eq("X2X0C1Z270F8U1M5A1H4X2I1N3A1C4I3S2Z0U0P0V0K0W050G9S5S2P061J5")
     end
   end
 end

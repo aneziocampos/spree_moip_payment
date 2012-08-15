@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<MOIP_DEV_KEY>:<MOIP_DEV_TOKEN>@desenvolvedor.moip.com.br/sandbox/ws/alpha/EnviarInstrucao/Unica
+    body:
+      encoding: ASCII-8BIT
+      string: <EnviarInstrucao><InstrucaoUnica TipoValidacao="Transparente"><Razao>Loja
+        Fitnoss</Razao><IdProprio>R033821777</IdProprio><Valores><Valor moeda="BRL">15.0</Valor></Valores><Pagador><Nome>John</Nome><Email>johndoe@example.com</Email><IdPagador>2</IdPagador><EnderecoCobranca><Logradouro>Av.
+        Presidente Vargas</Logradouro><Numero>65</Numero><Complemento>Centro</Complemento><Bairro>New
+        Hope</Bairro><Cidade>Rio de Janeiro</Cidade><Estado>RJ</Estado><Pais>BRA</Pais><CEP>00000-000</CEP><TelefoneFixo>(21)0000-0000</TelefoneFixo></EnderecoCobranca></Pagador></InstrucaoUnica></EnviarInstrucao>
+    headers:
+      accept:
+      - application/xml
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/xml
+      content-length:
+      - '589'
+      user-agent:
+      - Ruby
+      authorization:
+      - Basic V05MQ0FKVlRTVjg3OFhOWldaTU1NWVBVQ08xRE9ETUI6MjhaT0VPRU1BQzlRTk9JUEw0UFREUEVWTDNQWUQ4WFpYS09WTllQTw==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 15 Aug 2012 17:21:31 GMT
+      server:
+      - Apache/2.2.3 (CentOS)
+      vary:
+      - Accept-Encoding
+      content-encoding:
+      - gzip
+      content-length:
+      - '216'
+      content-type:
+      - text/xml;charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA4VP20rDQBT8FekH5FyS1TasC6XeoijFNW3o2xoCDTa7IWdj
+        /HyDFXx03oa5MKO9UH7rP1s3FF7iMNYulL6t3WsjffDSXHx1Jy/5bLteHGPs
+        c4BpmpIutH1Shy55H2AScKf+6GBh9E9MojO6uDGMxLgkRRlTSlnKeMZKzYrS
+        MFu0jS6OYuxYNyJBwy/Xb+Gj8abiCjd04Cu8W5b0rNb0kFVc0Eu6pk1WpJYP
+        WOIWd/iEe1R4v7LK8hYv6XHuP3do+BsF/901312+bDQRAQAA
+    http_version: '1.1'
+  recorded_at: Wed, 15 Aug 2012 17:21:15 GMT
+recorded_with: VCR 2.2.4
