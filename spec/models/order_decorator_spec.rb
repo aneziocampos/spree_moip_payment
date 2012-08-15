@@ -21,18 +21,36 @@ describe Spree::Order do
     let!(:payment) { FactoryGirl.create(:moip_payment) }
     let(:order) { FactoryGirl.create(:moip_order, number: "R033821777", total: 15.00, state: "delivery", user: FactoryGirl.create(:user, email: "johndoe@example.com")) }
 
-    before do
-      VCR.use_cassette('models/order_decorator/generate_moip_token/success') do
-        order.next
+    describe "token generation" do
+      before do
+        VCR.use_cassette('models/order_decorator/generate_moip_token/success') do
+          order.next
+        end
+      end
+
+      it "should status be payment" do
+        order.state.should eq("payment")
+      end
+
+      it "should generate token" do
+        order.moip_token.should eq("X2X0C1Z270F8U1M5A1H4X2I1N3A1C4I3S2Z0U0P0V0K0W050G9S5S2P061J5")
       end
     end
 
-    it "should status be payment" do
-      order.state.should eq("payment")
-    end
+    describe "create shipment" do
+      it "should create shipment" do
+        order.should_receive(:create_shipment!).twice
+        VCR.use_cassette('models/order_decorator/generate_moip_token/success') do
+          order.next
+        end
+      end
 
-    it "should generate token" do
-      order.moip_token.should eq("X2X0C1Z270F8U1M5A1H4X2I1N3A1C4I3S2Z0U0P0V0K0W050G9S5S2P061J5")
+      it "should reload the order" do
+        order.should_receive(:reload).once
+        VCR.use_cassette('models/order_decorator/generate_moip_token/success') do
+          order.next
+        end
+      end
     end
   end
 end
