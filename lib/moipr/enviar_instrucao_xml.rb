@@ -17,9 +17,9 @@ module Moipr
             p.IdPagador @order.user.id # 20
             p.EnderecoCobranca do |e|
               e.Logradouro @order.bill_address.address1 # 45
-              e.Numero "0" # smallint(5)
+              e.Numero @order.bill_address.address_number # smallint(5)
               e.Complemento @order.bill_address.address2 # Opcional 45
-              e.Bairro  "missing"# 45
+              e.Bairro  @order.bill_address.district # 45
               e.Cidade @order.bill_address.city # 32
               e.Estado @order.bill_address.state.abbr # UF -> 2
               e.Pais "BRA" # 3
