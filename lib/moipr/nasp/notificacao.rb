@@ -21,6 +21,11 @@ module Moipr
         build_predicate_method
       end
 
+      def status
+        STATUS_DE_PAGAMENTO[self.status_pagamento]
+      end
+
+      private
       def build_predicate_method
         Moipr::NASP::STATUS_DE_PAGAMENTO.each do |id, value|
           self.instance_eval <<-METHOD
