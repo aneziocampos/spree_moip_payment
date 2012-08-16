@@ -1,6 +1,6 @@
 <div id="MoipWidget" data-token="<%= @order.moip_token %>" callback-method-success="funcao_sucesso" callback-method-error="funcao_falha"></div>
 <% param_prefix = "payment_source[#{payment_method.id}]" %>
-<%= hidden_field_tag :moip_boleto_url %>
+<%= hidden_field_tag :order_moip_boleto_url, nil, :name => "order[moip_boleto_url]" %>
 
 <h2>Forma de Pagameto</h2>
 <p>

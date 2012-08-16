@@ -80,7 +80,7 @@ function processaPagtoBoleto () {
 var funcao_sucesso = function(data){
   var selected = $("input[name='payment_type']:checked").val();
   if (selected === "boleto") {
-    $("#moip_boleto_url").val(data.url);
+    $("#order_moip_boleto_url").val(data.url);
   }
   $("#checkout_form_payment").submit();
 };
