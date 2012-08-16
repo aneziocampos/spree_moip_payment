@@ -12,11 +12,15 @@
     <%= radio_button_tag :payment_type, "cartao_de_credito" %>
     Cartão de Crédito
   <% end %>
+  <%= label_tag do %>
+    <%= radio_button_tag :payment_type, "debito" %>
+    Débito bancário
+  <% end %>
 </p>
 
-<div id="boleto">
+<div id="boleto" class="moip_payment">
 </div>
-<div id="cartao_de_credito">
+<div id="cartao_de_credito" class="moip_payment">
   <div id="moip-payment">
     <h3 style="color: #00ADEE">Instituiçao</h3>
     <p>
@@ -80,4 +84,7 @@
       <%= text_field_tag :identidade %>
     </p>
   </div>
+</div>
+<div id="debito" class="moip_payment">
+  Débito
 </div>

@@ -1,9 +1,8 @@
 $(document).ready(function(){
-  $("input[name='payment_type']").bind('change', function(e){
-    $("input[name='payment_type']").each(function(){
-      var div_id = $(this).val();
-      $('#'+div_id).toggle();
-    })
+  $("input[name='payment_type']").change(function(){
+    var payment_selected = $(this).val();
+    $(".moip_payment").hide();
+    $("#" + payment_selected).show();
   });
 
    $("#checkout_form_payment input[type=submit]").click(function(e){
