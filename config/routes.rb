@@ -1,3 +1,3 @@
 Spree::Core::Engine.routes.draw do
-  # Add your extension routes here
+  match '/moip_callback' => 'moip_callbacks#nasp', :via => [:post]
 end
