@@ -26,6 +26,7 @@ end
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Spree::Core::UrlHelpers
+  config.include Spree::Core::TestingSupport::ControllerRequests
 
   config.mock_with :rspec
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
