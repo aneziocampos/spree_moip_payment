@@ -13,12 +13,12 @@ $(document).ready(function(){
 
    $('<div />', {
      id: "error_explanation",
-   }).prependTo("#moip-payment").hide();
+   }).prependTo("#cartao_de_credito").hide();
 
    $('<div />', {
      id: "message",
      class: "flash notice",
-   }).prependTo("#moip-payment").hide();
+   }).prependTo("#cartao_de_credito").hide();
 
 
    jQuery.validator.addMethod("zipcode", function(value, element) {
@@ -52,7 +52,7 @@ function processaPagamento(){
 }
 
 function processaPagtoCredito() {
-  form = $("#moip-payment");
+  form = $("#cartao_de_credito");
    var settings = {
        "Forma": "CartaoCredito",
        "Instituicao": $(form).find("input[name=instituicao]:checked").val(),

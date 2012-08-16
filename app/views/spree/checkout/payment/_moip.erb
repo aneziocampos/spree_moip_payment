@@ -22,71 +22,70 @@
 <div id="boleto" class="moip_payment">
 </div>
 <div id="cartao_de_credito" class="moip_payment">
-  <div id="moip-payment">
-    <h3 style="color: #00ADEE">Instituiçao</h3>
-    <p>
-      <%= label_tag do %>
-        <%= radio_button_tag :instituicao, "Visa" %>
-        Visa
-      <% end %>
+  <h3>Instituiçao</h3>
+  <p>
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "Visa" %>
+      Visa
+    <% end %>
 
-      <%= label_tag do %>
-        <%= radio_button_tag :instituicao, "AmericanExpress" %>
-        American Express
-      <% end %>
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "AmericanExpress" %>
+      American Express
+    <% end %>
 
-      <%= label_tag do %>
-        <%= radio_button_tag :instituicao, "Diners" %>
-        Diners
-      <% end %>
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "Diners" %>
+      Diners
+    <% end %>
 
-      <%= label_tag do %>
-        <%= radio_button_tag :instituicao, "Hipercard" %>
-        Hipercard
-      <% end %>
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "Hipercard" %>
+      Hipercard
+    <% end %>
 
-      <%= label_tag do %>
-        <%= radio_button_tag :instituicao, "Mastercard" %>
-        Mastercard
-      <% end %>
-    </p>
-    <p>
-      <%= label_tag :numero, "Número" %>
-      <%= text_field_tag :numero %>
-    </p>
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "Mastercard" %>
+      Mastercard
+    <% end %>
+  </p>
+  <p>
+    <%= label_tag :numero, "Número" %>
+    <%= text_field_tag :numero %>
+  </p>
 
-    <p>
-      <%= label_tag :codigo_seguranca, "Codigo de segurança" %>
-      <%= text_field_tag :codigo_seguranca %>
-    </p>
+  <p>
+    <%= label_tag :codigo_seguranca, "Codigo de segurança" %>
+    <%= text_field_tag :codigo_seguranca %>
+  </p>
 
-    <p>
-      <%= label_tag :expiracao, "Expiração" %>
-      <%= text_field_tag :expiracao %>
-    </p>
+  <p>
+    <%= label_tag :expiracao, "Expiração" %>
+    <%= text_field_tag :expiracao %>
+  </p>
 
-    <p>
-      <%= label_tag :nome, "Nome" %>
-      <%= text_field_tag :nome %>
-    </p>
+  <p>
+    <%= label_tag :nome, "Nome" %>
+    <%= text_field_tag :nome %>
+  </p>
 
-    <p>
-      <%= label_tag :data_nascimento, "Data de nascimento" %>
-      <%= text_field_tag :data_nascimento %>
-    </p>
+  <p>
+    <%= label_tag :data_nascimento, "Data de nascimento" %>
+    <%= text_field_tag :data_nascimento %>
+  </p>
 
-    <p>
-      <%= label_tag :telefone, "Telefone" %>
-      <%= text_field_tag :telefone %>
-    </p>
+  <p>
+    <%= label_tag :telefone, "Telefone" %>
+    <%= text_field_tag :telefone %>
+  </p>
 
-    <p>
-      <%= label_tag :identidade, "CPF" %>
-      <%= text_field_tag :identidade %>
-    </p>
-  </div>
+  <p>
+    <%= label_tag :identidade, "CPF" %>
+    <%= text_field_tag :identidade %>
+  </p>
 </div>
 <div id="debito" class="moip_payment">
+  <h3>Instituiçao</h3>
   <p>
     <%= label_tag do %>
       <%= radio_button_tag :instituicao, "BancoDoBrasil" %>
