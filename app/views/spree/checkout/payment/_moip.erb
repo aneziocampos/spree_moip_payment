@@ -1,6 +1,7 @@
 <div id="MoipWidget" data-token="<%= @order.moip_token %>" callback-method-success="funcao_sucesso" callback-method-error="funcao_falha"></div>
 <% param_prefix = "payment_source[#{payment_method.id}]" %>
 <%= hidden_field_tag :order_moip_boleto_url, nil, :name => "order[moip_boleto_url]" %>
+<%= hidden_field_tag :order_moip_debito_url, nil, :name => "order[moip_debito_url]" %>
 
 <h2>Forma de Pagameto</h2>
 <p>
@@ -86,5 +87,25 @@
   </div>
 </div>
 <div id="debito" class="moip_payment">
-  Débito
+  <p>
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "BancoDoBrasil" %>
+      Banco do Brasil
+    <% end %>
+
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "Bradesco" %>
+      Bradesco
+    <% end %>
+
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "Banrisul" %>
+      Banrisul
+    <% end %>
+
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "Itau" %>
+      Itaú
+    <% end %>
+  </p>
 </div>
