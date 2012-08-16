@@ -17,6 +17,14 @@ describe Spree::Order do
     end
   end
 
+  describe "mass assignment" do
+    context "allowed values" do
+      [:moip_boleto_url].each do |attribute|
+        it { should allow_mass_assignment_of(attribute) }
+      end
+    end
+  end
+
   describe "generate_moip_token" do
     let!(:payment) { FactoryGirl.create(:moip_payment) }
     let(:order) { FactoryGirl.create(:moip_order, number: "R033821777", total: 15.00, state: "delivery", user: FactoryGirl.create(:user, email: "johndoe@example.com")) }
