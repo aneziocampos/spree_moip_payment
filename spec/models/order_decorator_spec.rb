@@ -19,7 +19,7 @@ describe Spree::Order do
 
   describe "mass assignment" do
     context "allowed values" do
-      [:moip_boleto_url].each do |attribute|
+      [:moip_boleto_url, :moip_debito_url].each do |attribute|
         it { should allow_mass_assignment_of(attribute) }
       end
     end
