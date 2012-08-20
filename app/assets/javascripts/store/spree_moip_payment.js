@@ -1,3 +1,5 @@
+//= require maskedinput
+
 $(document).ready(function(){
   $(".moip_payment").hide();
   $("input[name='payment_type']").change(function(){
@@ -27,13 +29,16 @@ $(document).ready(function(){
    }, "Defina o Codigo Postal no formato xxxxx-xxx");
 
    jQuery.validator.addMethod("phone", function(value, element) {
-     return value.match(/^\((\d){2}\)(\d){4,5}-(\d){4}$/);
+     return value.match(/^\((\d){2}\)(\d){4}-(\d){4,5}_?$/);
    }, "Defina o Telefone no formato (xx)xxxx-xxxx");
 
    $("#order_bill_address_attributes_zipcode, #order_ship_address_attributes_zipcode").addClass("zipcode");
    $("#order_bill_address_attributes_phone, #order_ship_address_attributes_phone").addClass("phone");
    $("#order_bill_address_attributes_address_number, #order_bill_address_attributes_district").addClass("required");
    $("#order_ship_address_attributes_address_number, #order_ship_address_attributes_district").addClass("required");
+
+   $("#order_bill_address_attributes_zipcode, #order_ship_address_attributes_zipcode").mask("99999-999");
+   $("#order_bill_address_attributes_phone, #order_ship_address_attributes_phone").mask("(99)9999-9999?9");
 });
 
 
