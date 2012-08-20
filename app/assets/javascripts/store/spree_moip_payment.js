@@ -128,8 +128,9 @@ function generateMoipFields(){
         * \
       </span> \
       <br><input type="text" name="order[bill_address_attributes][address_number]" id="order_bill_address_attributes_address_number" class="required"> \
-  </p> \
-  <p id="bdistrict" class="field"> \
+  </p>').insertBefore('#baddress2');
+
+  $('<p id="bdistrict" class="field"> \
     <label for="order_bill_address_attributes_district">Bairro</label> \
     <span class="required"> \
       * \
@@ -137,15 +138,15 @@ function generateMoipFields(){
     <br><input type="text" name="order[bill_address_attributes][district]" id="order_bill_address_attributes_district" class="required"> \
   </p>').insertBefore('#bzipcode');
 
-
   $('<p id="saddress_number" class="field"> \
     <label for="order_ship_address_attributes_address_number">Numero</label> \
     <span class="required"> \
       * \
     </span> \
     <br><input type="text" name="order[ship_address_attributes][address_number]" id="order_ship_address_attributes_address_number" class="required"> \
-  </p> \
-  <p id="sdistrict" class="field"> \
+  </p>').insertBefore('#saddress2');
+
+  $('<p id="sdistrict" class="field"> \
     <label for="order_ship_address_attributes_district">Bairro</label> \
     <span class="required"> \
       * \
