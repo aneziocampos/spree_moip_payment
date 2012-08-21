@@ -9,6 +9,7 @@ Spree::Order.class_eval do
   end
 
   def generate_moip_token
+    regenerate_token
     self.create_shipment!
     self.reload
     xml = Moipr::EnviarInstrucaoXML.new(order: self)
@@ -19,4 +20,14 @@ Spree::Order.class_eval do
     moip_token = doc.xpath("//Token")[0].content
     update_column(:moip_token, moip_token)
   end
+
+  private
+
+    def regenerate_token
+      if self.moip_token.present?
+         update_column(:number, nil)
+         self.generate_order_number
+         self.save
+      end
+    end
 end
