@@ -32,7 +32,7 @@ describe Spree::Address do
     describe "phone" do
       context "valid values" do
         it { should allow_value('(12)3456-7890').for(:phone) }
-        it { should allow_value('(11)93456-7890').for(:phone) }
+        it { should allow_value('(11)3456-78909').for(:phone) }
       end
 
       context "invalid values" do
