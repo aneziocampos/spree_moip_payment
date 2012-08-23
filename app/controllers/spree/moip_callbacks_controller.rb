@@ -12,7 +12,7 @@ module Spree
       if @order && @notificacao
         @payment.log_entries.create(:details => @notificacao.to_yaml)
 
-        if @notificacao.concluido? && @order.total.to_s == format(@notificacao.valor)
+        if @notificacao.concluido? && @notificacao.pagamento_correto?(@order.total)
           @payment.complete!
         elsif @notificacao.cancelado? || @notificacao.estornado?
           @payment.void!
@@ -22,14 +22,6 @@ module Spree
     end
 
     private
-    def format(number)
-      return unless number
-      number = number.to_i
-      numeral = number/100
-      cents = number%100
-      [numeral, cents].join(".")
-    end
-
     def fetch_order_and_payment
       @order = Spree::Order.find_by_number(params[:id_transacao])
 
