@@ -25,6 +25,14 @@ module Moipr
         STATUS_DE_PAGAMENTO[self.status_pagamento]
       end
 
+      # Esse método recebe um valor em BigDecimal
+      # e compara com o valor vindo do NASP
+      #
+      # @param [BigDecimal]
+      def pagamento_correto?(valor_a_pagar)
+        valor_a_pagar.to_s == format(valor)
+      end
+
       private
       def build_predicate_method
         Moipr::NASP::STATUS_DE_PAGAMENTO.each do |id, value|
@@ -34,6 +42,14 @@ module Moipr
             end
           METHOD
         end
+      end
+
+      def format(number)
+        return unless number
+        number = number.to_i
+        numeral = number/100
+        cents = number%100
+        [numeral, cents].join(".")
       end
     end
   end

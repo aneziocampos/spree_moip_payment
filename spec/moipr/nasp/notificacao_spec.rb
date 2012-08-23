@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'bigdecimal'
 
 describe Moipr::NASP::Notificacao do
   describe "initialize" do
@@ -58,6 +59,18 @@ describe Moipr::NASP::Notificacao do
         notificacao.stub!(:status_pagamento).and_return("7")
         notificacao.estornado?.should be_true
       }
+    end
+  end
+
+  describe "pagamento_correto?" do
+    let!(:notificacao) { Moipr::NASP::Notificacao.new(post_nasp_params.merge({valor: "5433"})) }
+    it "should return true when paid the correct value" do
+      valor_devido = BigDecimal.new("54.33")
+      notificacao.pagamento_correto?(valor_devido).should be_true
+    end
+    it "should return false when not paid the correct value" do
+      valor_devido = BigDecimal.new("12.33")
+      notificacao.pagamento_correto?(valor_devido).should be_false
     end
   end
 end
