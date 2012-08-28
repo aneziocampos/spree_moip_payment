@@ -30,7 +30,7 @@ module Moipr
       #
       # @param [BigDecimal]
       def pagamento_correto?(valor_a_pagar)
-        valor_a_pagar.to_s == format(valor)
+        valor_a_pagar == valor_pago_formatado
       end
 
       private
@@ -44,12 +44,8 @@ module Moipr
         end
       end
 
-      def format(number)
-        return unless number
-        number = number.to_i
-        numeral = number/100
-        cents = number%100
-        [numeral, cents].join(".")
+      def valor_pago_formatado
+        (valor.to_i / 100.00)
       end
     end
   end
