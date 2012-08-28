@@ -12,7 +12,11 @@ module Spree
       if @order && @notificacao
         @payment.log_entries.create(:details => @notificacao.to_yaml)
 
-        if @notificacao.concluido? && @notificacao.pagamento_correto?(@order.total)
+        if @notificacao.autorizado? || @notificacao.em_analise?
+          @payment.started_processing!
+        elsif @notificacao.iniciado? || @notificacao.boleto_impresso?
+          @payment.pend!
+        elsif @notificacao.concluido? && @notificacao.pagamento_correto?(@order.total)
           @payment.complete!
         elsif @notificacao.cancelado? || @notificacao.estornado?
           @payment.void!

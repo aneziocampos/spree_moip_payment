@@ -7,21 +7,24 @@ describe Spree::MoipCallbacksController do
     let!(:payment) { FactoryGirl.create(:moip_payment, order: order) }
 
     context "autorizado" do
-      xit {
+      it {
+        payment.update_column(:state, "checkout")
         expect {
           post :nasp, post_nasp_params.merge!(status_pagamento: "1", id_transacao: order.number, valor: order.total)
-        }.to change{order.reload.payment.state}.from("checkout").to("started_processing")
+        }.to change{order.reload.payment.state}.from("checkout").to("processing")
       }
     end
     context "iniciado" do
-      xit {
+      it {
+        payment.update_column(:state, "checkout")
         expect {
           post :nasp, post_nasp_params.merge!(status_pagamento: "2", id_transacao: order.number, valor: order.total)
         }.to change{order.reload.payment.state}.from("checkout").to("pending")
       }
     end
     context "boleto_impresso" do
-      xit {
+      it {
+        payment.update_column(:state, "checkout")
         expect {
           post :nasp, post_nasp_params.merge!(status_pagamento: "3", id_transacao: order.number, valor: order.total)
         }.to change{order.reload.payment.state}.from("checkout").to("pending")
@@ -51,10 +54,11 @@ describe Spree::MoipCallbacksController do
       }
     end
     context "em_analise" do
-      xit {
+      it {
+        payment.update_column(:state, "checkout")
         expect {
           post :nasp, post_nasp_params.merge!(status_pagamento: "6", id_transacao: order.number, valor: order.total)
-        }.to_not change{order.reload.payment.state}
+        }.to change{order.reload.payment.state}.from("checkout").to("processing")
       }
     end
     context "estornado" do
