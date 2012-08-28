@@ -12,7 +12,8 @@ module Moipr
 
     class Notificacao
       attr_accessor :cod_moip, :email_consumidor, :forma_pagamento, :id_transacao,
-                    :parcelas,:status_pagamento, :tipo_pagamento, :valor
+                    :parcelas,:status_pagamento, :tipo_pagamento, :valor, :recebedor_login,
+                    :cartao_bandeira, :cartao_bin, :cartao_final, :cod_moip, :cofre
 
       def initialize(attributes = {})
         attributes.each do |name, value|
