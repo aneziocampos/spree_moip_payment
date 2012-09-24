@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_moip_payment'
-  s.version     = '1.1.2'
+  s.version     = '1.2.0'
   s.summary     = 'spree_moip_payment criar um Payment Method do MoIP no "spree way" para ser usado em uma loja Spree.'
   # s.description = 'TODO: Add (optional) gem description here'
   s.required_ruby_version = '>= 1.8.7'
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 1.1.2'
+  s.add_dependency 'spree_core', '~> 1.2.0'
   s.add_dependency 'rest-client', '1.6.7'
 
   s.add_development_dependency 'capybara', '1.0.1'
